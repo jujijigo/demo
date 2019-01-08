@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default" id="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">AnyDemo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="../spMsg/index.php">简易留言板</a></li>
+                <li><a href="../users/index.php">注册 / 登录</a></li>
+                <li><a href="../adMsg/index.php">高级留言板</a></li>
+                <li><a href="../onlineDisk/index.php">在线网盘</a></li>
+                <!--<li><a href="javascript:void(0)">快递查询</a></li>-->
+                <li><a href="http://www.anydemo.cn">论坛系统</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script>
+    $('.navbar-nav').find('a').each(function(){
+        if (this.href == location.href || location.href.search(this.href) >= 0) {
+            $(this).parent().addClass('active');
+        }
+    });
+</script>

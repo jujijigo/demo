@@ -1,0 +1,30 @@
+{include file="common/header"}
+<div id="main" class="main-container container">
+    {include file="common/topic_list"}
+
+    <div class="col-md-3 side-bar">
+      <?php if(!$user):?>
+        <?php require(APP_PATH.'/index/view/common/login_sidebar.html');?>
+      <?php else : ?>
+        <?php require(APP_PATH.'/index/view/common/new_topic_sidebar.html');?>
+      <?php endif;?>
+      <div class="panel panel-default corner-radius">
+          <div class="panel-heading">
+              <h3 class="panel-title">热门标签</h3>
+          </div>
+          <div class="panel-body">
+            <?php foreach($hotTags as $hotTag):?>
+              <div class="badge badge-tag-cloud">
+                <?php if($hotTag->tag_id != $tagId):?>
+                  <a href="<?=url('topic/tag');?>?tag=<?=$hotTag->tag_id;?>"><?=$hotTag->tag->name;?></a> (<?=$hotTag->topicNum;?>)
+                <?php else:?>
+                  <span><?=$hotTag->tag->name;?></span> (<?=$hotTag->topicNum;?>)
+                <?php endif;?>
+              </div>
+            <?php endforeach;?>
+          </div>
+      </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<?php require(APP_PATH.'/index/view/common/footer.html');?>
